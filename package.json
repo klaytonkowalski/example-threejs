@@ -1,0 +1,19 @@
+{
+  "name": "example-threejs",
+  "description": "Demonstration of the Three.js library for drawing 3D graphics on the Web using WebGL.",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klaytonkowalski/example-threejs.git"
+  },
+  "author": "Klayton Kowalski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/klaytonkowalski/example-threejs/issues"
+  },
+  "homepage": "https://github.com/klaytonkowalski/example-threejs#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "three": "^0.137.5"
+  }
+}
