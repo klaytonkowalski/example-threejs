@@ -30,8 +30,19 @@ const meshes =
     addMesh(0x0000FF, 2)
 ]
 
+function checkResize()
+{
+    return elCanvas.width != elCanvas.clientWidth || elCanvas.height != elCanvas.clientHeight
+}
+
 function render(dt)
 {
+    if (checkResize())
+    {
+        renderer.setSize(elCanvas.clientWidth, elCanvas.clientHeight, false)
+        camera.aspect = elCanvas.clientWidth / elCanvas.clientHeight
+        camera.updateProjectionMatrix();
+    }
     for (const mesh of meshes)
     {
         mesh.rotation.x = dt * 0.001
@@ -42,5 +53,3 @@ function render(dt)
 }
 
 requestAnimationFrame(render)
-
-console.log(scene);
