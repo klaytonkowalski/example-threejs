@@ -4,8 +4,8 @@ const path = require(`path`);
 const app = express();
 
 app.use(express.static(path.join(__dirname, `public`)));
-app.use(`/build`, express.static(path.join(__dirname, `node_modules`, `three`, `build`)));
-app.use(`/jsm`, express.static(path.join(__dirname, `node_modules`, `three`, `examples`, `jsm`)));
+app.use(`/lib/three`, express.static(path.join(__dirname, `node_modules`, `three`, `build`, `three.module.js`)));
+app.use(`/lib/orbit-controls`, express.static(path.join(__dirname, `node_modules_custom`, `OrbitControls.js`)));
 
 app.listen(4106, () =>
 {

@@ -1,5 +1,5 @@
-import * as THREE from '/build/three.module.js'
-import { OrbitControls } from '/jsm/controls/OrbitControls.js'
+import * as THREE from '/lib/three'
+import { OrbitControls } from '/lib/orbit-controls'
 
 const elCanvas = document.getElementById(`canvas`)
 
@@ -18,10 +18,6 @@ const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
 
 const meshes = []
 
-///////////////////////////////////////////////////////////////////////////////
-// TEXTURES, LOADING
-///////////////////////////////////////////////////////////////////////////////
-
 const loader = new THREE.TextureLoader();
 const texture = loader.load(`../assets/texture-7.png`)
 texture.wrapS = THREE.RepeatWrapping
@@ -38,19 +34,44 @@ scene.add(planeMesh)
 const cubeGeometry = new THREE.BoxGeometry(3, 3, 3)
 const cubeMaterial = new THREE.MeshPhongMaterial({ color: `#8AC` })
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
-cubeMesh.position.set(3, 5, 0)
+cubeMesh.position.set(4, 5, 0)
 scene.add(cubeMesh)
 meshes.push(cubeMesh)
 
 const sphereGeometry = new THREE.SphereGeometry(3, 16, 16)
 const sphereMaterial = new THREE.MeshPhongMaterial({ color: `#CA8` })
 const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial)
-sphereMesh.position.set(-3, 5, 0)
+sphereMesh.position.set(-4, 5, 0)
 scene.add(sphereMesh)
 meshes.push(sphereMesh)
 
+///////////////////////////////////////////////////////////////////////////////
+// LIGHTING
+///////////////////////////////////////////////////////////////////////////////
+
 const ambientLight = new THREE.AmbientLight(`#FFF`, 1)
-scene.add(ambientLight)
+// scene.add(ambientLight)
+
+const hemisphereLight = new THREE.HemisphereLight(`#F00`, `#00F`, 1)
+// scene.add(hemisphereLight)
+
+const directionalLight = new THREE.DirectionalLight(`#FFF`, 1)
+directionalLight.position.set(8, 5, 0)
+// scene.add(directionalLight)
+directionalLight.target.position.set(0, 4, 0)
+// scene.add(directionalLight.target)
+
+const pointLight = new THREE.PointLight(`#0F0`, 1)
+pointLight.position.set(0, 2, 0)
+pointLight.distance = 20
+scene.add(pointLight)
+
+const spotLight = new THREE.SpotLight(`#FF0`, 1)
+spotLight.position.set(20, 10, 0)
+spotLight.distance = 40
+// scene.add(spotLight)
+spotLight.target.position.set(2, 2, 2)
+// scene.add(spotLight.target)
 
 ///////////////////////////////////////////////////////////////////////////////
 
