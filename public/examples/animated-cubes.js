@@ -1,6 +1,6 @@
-import * as THREE from '/three/three.module.js'
+import * as THREE from '/build/three.module.js'
 
-const elCanvas = document.getElementById('canvas')
+const elCanvas = document.getElementById(`canvas`)
 
 const renderer = new THREE.WebGLRenderer({ canvas: elCanvas })
 const scene = new THREE.Scene()

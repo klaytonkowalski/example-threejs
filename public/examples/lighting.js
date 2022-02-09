@@ -1,7 +1,7 @@
 import * as THREE from '/build/three.module.js'
 import { OrbitControls } from '/jsm/controls/OrbitControls.js'
 
-const elCanvas = document.getElementById('canvas')
+const elCanvas = document.getElementById(`canvas`)
 
 const renderer = new THREE.WebGLRenderer({ canvas: elCanvas })
 
@@ -23,7 +23,7 @@ const meshes = []
 ///////////////////////////////////////////////////////////////////////////////
 
 const loader = new THREE.TextureLoader();
-const texture = loader.load('../assets/texture-7.png')
+const texture = loader.load(`../assets/texture-7.png`)
 texture.wrapS = THREE.RepeatWrapping
 texture.wrapT = THREE.RepeatWrapping
 texture.magFilter = THREE.NearestFilter
@@ -35,21 +35,21 @@ const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)
 planeMesh.rotation.x = Math.PI * -0.5
 scene.add(planeMesh)
 
-const cubeGeometry = new THREE.BoxGeometry(4, 4, 4)
-const cubeMaterial = new THREE.MeshPhongMaterial({ color: '#8AC' })
+const cubeGeometry = new THREE.BoxGeometry(3, 3, 3)
+const cubeMaterial = new THREE.MeshPhongMaterial({ color: `#8AC` })
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
-cubeMesh.position.set(6, 3, 0)
+cubeMesh.position.set(3, 5, 0)
 scene.add(cubeMesh)
-meshes.add(cubeMesh)
+meshes.push(cubeMesh)
 
-const sphereGeometry = new THREE.SphereGeometry(4, 8, 8)
-const sphereMaterial = new THREE.SphereMaterial({ color: '#CA8' })
+const sphereGeometry = new THREE.SphereGeometry(3, 16, 16)
+const sphereMaterial = new THREE.MeshPhongMaterial({ color: `#CA8` })
 const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial)
-sphereMesh.postition.set(-6, 3, 0)
+sphereMesh.position.set(-3, 5, 0)
 scene.add(sphereMesh)
-meshes.add(sphereMesh)
+meshes.push(sphereMesh)
 
-const ambientLight = new THREE.AmbientLight('#FFF', 1)
+const ambientLight = new THREE.AmbientLight(`#FFF`, 1)
 scene.add(ambientLight)
 
 ///////////////////////////////////////////////////////////////////////////////
